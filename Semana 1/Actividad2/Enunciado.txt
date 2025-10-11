@@ -1,0 +1,20 @@
+SUPER MERCADO
+
+Requisitos:
+
+1.- Clases
+2.- Clase Principal
+3.- Menu (CRUD), y comprar
+4.- Mostrar un tiket al finailzar
+
+Ejemplo de tikect
+
+--------------------------------------------------
+Cliente: x
+
+Producto - precioUnitario - Cantidad - Subtotal
+leche       25              2           50
+Huevo       30              3           90
+
+Total : $
+
