@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body class="bg-light d-flex flex-column" style="height: 100vh;">
+    <nav class="navbar navbar-light bg-white shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <a href="#" class="navbar-brand d-inline-block me-3">Mi app</a>
+                <a href="#" class="navbar-brand d-inline-block me-3">Ayuda</a>
+                <a href="#" class="navbar-brand d-inline-block">Practica de login </a>
+            </div>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <butto class="btn btn-outline-danger"> Cerrar Sesion </butto>
+            </form>
+        </div>
+    </nav>
+
+    <div class="d-flex justify-content-center align-items-center flex-grow-1">
+        <div class="card shadow-sm p-4 text-center" style="max-width: 400px; width: 100%;">
+            <h2 class="mb-4"> Bienvenido, {{usuario.last_name}}! </h2>
+            <p class="lead mb-4"> Este es tu panel de control. </p>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-outline-danger" type="submit"> Cerrar Sesion </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

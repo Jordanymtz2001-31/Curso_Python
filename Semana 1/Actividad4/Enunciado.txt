@@ -1,0 +1,9 @@
+ACTIVIDAD 4 - POO
+SISTEMA GESTOR DE TRANSPORTES
+(Herencia, Polimorfismo y Composicion)
+
+1.- Crear una clase Transportes: Tipo, Tamaño, Area, Conductor
+2.- Crear clases hijas: Avion, Coche, Barco y otro: 1 atributo extra. (Herencia)
+3.- Crear dos metodos en la clase Transportes: Accion y otro (Polimorfismo y Sobreescritura)
+4.- Crear una clase Conductor asociada a cada Transportes: Nombre, edad, especialidad (Composicion)
+5.- Clase principal: Pruebas basicas del CRUD

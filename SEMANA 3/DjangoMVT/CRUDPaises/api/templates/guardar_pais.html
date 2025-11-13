@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paises</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body class="bg-ligth">
+    <div class="container py-5">
+        <h1 class="text-center mb-4"> REGISTRO DE PAISES </h1>
+        <a href="{% url 'listar_pais_url' %}" class="btn btn-secondary"> REGRESAR </a>
+        <br>
+        <br>
+
+        <!-- Formulario para el registro de un nuevo pais -->
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre: </label>
+                <input type="text" class="form-control" name="nombre" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="continente" class="form-label">Continente: </label>
+                <input type="text" class="form-control" name="continente" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="idioma" class="form-label">Idioma: </label>
+                <input type="text" class="form-control" name="idioma" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="habitantes" class="form-label">Habitantes: </label>
+                <input type="number" class="form-control" name="habitantes" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="gobierno" class="form-label">Gobierno: </label>
+                <select name="gobierno" class="form-select" required>
+                    <option value="Republica"> Republica </option>
+                    <option value="Monarquia"> Monarquia </option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary" type="submit"> ACEPTAR </button>
+        </form>
+    </div>
+</body>
+
+</html>

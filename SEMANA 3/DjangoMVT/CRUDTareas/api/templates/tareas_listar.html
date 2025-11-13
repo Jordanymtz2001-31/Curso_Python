@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAREAS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body class="bg-ligth">
+    <div class="container py-5">
+        <h1 class="text-center mb-4"> LISTA DE TAREAS </h1>
+
+        <!-- FORUMULARIO PARA AGREGAR UNA NUEVA TAREA -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h4 class="card-title text-center"> Registro de Tareas </h4>
+                <form method="post">
+                    {% csrf_token %}
+                    {% for campo in formulario %}
+                    <div class="mb-3">
+                        <label class="form-label"> {{campo.label}} </label>
+                        {{campo}}
+                    </div>
+                    {% endfor %}
+                    <button class="btn btn-success w-100" type="submit"> AGREGAR </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <!-- Lista de tareas incompletas -->
+            <div class="col md-6">
+                <div class="card border-0 shadow-sm rounded-3">
+                    <div class="card-header bg-secondary text-white rounded-top">
+                        <h3 class="mb-0">
+                            <i class="bi bi-hourglass-split"></i> Tareas Incompletas
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        {% for tarea in incompletas %}
+                        <li class="list-group-item border-0 ps-0 d-flex align-items-center">
+                            <!-- Checkbox para completar la tarea -->
+                            <form action="{% url 'update_tarea_url' tarea.id %}" class="me-2" method="post">
+                                {% csrf_token %}
+                                <input type="checkbox" class="form-check-input" name="completed"
+                                    onchange="this.form.submit()" {% if tarea.completado %} checked {% endif %}>
+                            </form>
+
+                            <!-- Inforacion de la tarea -->
+                            <div>
+                                <strong class="text-dark"> {{tarea.titulo}} </strong>
+                                <p class="text-mured mb-0"> {{tarea.descripcion}} </p>
+                            </div>
+                        </li>
+                        <hr>
+                        {% empty %}
+                        <p class="text-muted"> No hay tareas incompletas </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista para tareas completadas -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm rounded-3">
+                    <div class="card-header bg-dark text-white rounded-top">
+                        <h3 class="mb-0">
+                            <i class="bi bi-check-circle"></i> Tareas Completadas
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        {% for tarea in completadas %}
+                        <li class="list-group-item border-0 ps-0 d-flex align-items-center">
+                            <!-- Checkbox para desmarcar la tarea -->
+                            <form action="{% url 'update_tarea_url' tarea.id %}" class="me-2" method="post">
+                                {% csrf_token %}
+                                <input type="checkbox" class="form-check-input" name="completed"
+                                    onchange="this.form.submit()" {% if tarea.completado %} checked {% endif %}>
+                            </form>
+
+                            <!-- Informacion de la tarea -->
+                            <div>
+                                <strong class="text-dark"> {{tarea.titulo}} </strong>
+                                <p class="text-muted mb-0"> {{tarea.descripcion}} </p>
+                            </div>
+                        </li>
+                        <hr>
+                        {% empty %}
+                        <p class="text-muted"> No hay tareas completadas </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

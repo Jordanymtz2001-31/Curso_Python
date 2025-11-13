@@ -1,0 +1,34 @@
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            <h2> PERFILES </h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-secondary">
+                <thead>
+                    <tr class="text-center">
+                        <th> ID </th>
+                        <th> USUARIO </th>
+                        <th> NOMBRE </th>
+                        <th> EDAD </th>
+                        <th> NIVEL </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (perfil of perfiles; track perfil.id) {
+                    <tr class="text-center">
+                        <td> {{perfil.id}} </td>
+                        <td> {{perfil.usuario}} </td>
+                        <td> {{perfil.nombre}} </td>
+                        <td> {{perfil.edad}} </td>
+                        <td> {{perfil.nivel}} </td>
+                    </tr>
+                    } @empty {
+                    <td class="text-center" colspan="5"> NO EXISTEN PERFILES REGISTRADOS </td>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

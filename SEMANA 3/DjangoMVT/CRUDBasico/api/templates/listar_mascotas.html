@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUDBasico</title>
+</head>
+
+<body>
+    <h1> LISTA DE MASCOTAS </h1>
+    <a href="{% url 'buscar_mascota_url' %}">
+        <button> BUSCAR MASCOTA </button>
+    </a>
+
+    <br>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th> ID </th>
+                <th> NOMBRE </th>
+                <th> TIPO</th>
+                <th> EDAD </th>
+                <th> CATEGORIA </th>
+                <th> ACCIONES </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mascota in mascotas %}
+            <tr>
+                <td> {{mascota.id}} </td>
+                <td> {{mascota.nombre}} </td>
+                <td> {{mascota.edad}} </td>
+                <td> {{mascota.tipo}} </td>
+                <td> {{mascota.categoria}} </td>
+                <td>
+                    <a href="{% url 'editar_mascota_url' mascota.id %}">
+                        <button>EDITAR</button>
+                    </a>
+
+                    <a href="{% url 'eliminar_mascota_url' mascota.id %}"
+                        onclick="return confirm('¿Estas seguro de eliminar esta mascota?')">
+                        <button>ELIMINAR</button>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6"> No hay mascotas registradas en la base de datos. </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

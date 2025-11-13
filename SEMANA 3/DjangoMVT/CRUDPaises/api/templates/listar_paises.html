@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paises</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body class="bg-ligth">
+    <div class="container py-5">
+        <h1 class="text-center mb-4"> LISTA DE PAISES </h1>
+
+        <!-- Botones para registrar y buscar un pais -->
+        <div class="mb-3-text-end">
+            <a href="{% url 'guardar_pais_url' %}" class="btn btn-success mx-3">REGISTRAR PAIS</a>
+            <a href="{% url 'buscar_pais_url' %}" class="btn btn-primary mx-3">BUSCAR PAIS</a>
+        </div>
+        <br>
+
+        <!-- Tabla de paises -->
+        <table class="table table-striped table-bordered table-hover shadow-sm">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th> ID </th>
+                    <th> NOMBRE </th>
+                    <th> CONTINENTE </th>
+                    <th> IDIOMA </th>
+                    <th> HABITANTES </th>
+                    <th> GOBIERNO </th>
+                    <th> ACCIONES </th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                {% if paises %}
+                {% for pais in paises %}
+                <tr>
+                    <td> {{pais.id}} </td>
+                    <td> {{pais.nombre}} </td>
+                    <td> {{pais.continente}} </td>
+                    <td> {{pais.idioma}} </td>
+                    <td> {{pais.habitantes}} </td>
+                    <td> {{pais.gobierno}} </td>
+                    <td>
+                        <a href="{% url 'editar_pais_url' pais.id %}" class="btn btn-warning">EDITAR</a>
+                        <a href="{% url 'eliminar_pais_url' pais.id %}" class="btn btn-danger">ELIMINAR</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td class="text-center" colspan="7"> NO HAY PAISES REGISTRADOS</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

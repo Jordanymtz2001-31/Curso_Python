@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUDBasico</title>
+</head>
+
+<body>
+    <h1> BUSCAR MASCOTA </h1>
+
+    <form method="get">
+        <label for="nombre_buscado"> Buscar por nombre: </label>
+        <input type="text" name="nombre_buscado" value="{{ encontrado }}" placeholder="Ingresa el nombre de la mascota">
+
+        <button type="submit"> BUSCAR </button>
+    </form>
+
+    <h2> Resultado: </h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th> NOMBRE </th>
+                <th> TIPO </th>
+                <th> EDAD </th>
+                <th> CATEGORIA </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if mascotas %}
+            {% for mascota in mascotas %}
+            <tr>
+                <td> {{mascota.nombre}} </td>
+                <td> {{mascota.tipo}} </td>
+                <td> {{mascota.edad}} </td>
+                <td> {{mascota.categoria}} </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="4"> No se encontraron mascotas con ese nombre. </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'listar_mascotas_url' %}">Volver a la lista. </a>
+</body>
+
+</html>

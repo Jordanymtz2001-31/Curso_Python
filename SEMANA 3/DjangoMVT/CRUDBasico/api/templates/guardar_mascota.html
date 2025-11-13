@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUDBasico</title>
+</head>
+
+<body>
+    <h1> REGISTRO DE MASCOTAS </h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre"> Nombre: </label>
+        <input type="text" name="nombre" required>
+
+        <label for="tipo"> Tipo: </label>
+        <input type="text" name="tipo" required>
+
+        <label for="edad"> Edad: </label>
+        <input type="number" name="edad" required>
+
+        <label for="categoria"> Categoria: </label>
+        <input type="text" name="categoria" required>
+        <br>
+        <button type="submit"> GUARDAR </button>
+    </form>
+</body>
+<br>
+<a href="{% url 'listar_mascotas_url' %}"> Volver a la lista</a>
+
+</html>

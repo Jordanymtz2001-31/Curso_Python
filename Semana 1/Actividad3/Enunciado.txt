@@ -1,0 +1,18 @@
+Sistema Gestor de libros
+
+1.- Crear una clase Persona (Clase Padre): clave, nombre, edad
+2.- Crear una clase Usuari (Clase Hija): Libros prestados []
+3.- Crear una clase Libros: ID, Titulo, Autor, disponible (si esta o no)
+4.- Crear una clase Biblioteca: Nombre, lista de usuarios, lista de libros
+5.- Menu
+    Registrar Usuarios
+    Registrar libros
+    Ver libros de usuarios
+    Lista de usuarios
+    Lista de Libros
+    Devolver libros a la Biblioteca
+    Prestar libros a un usuarios
+    Eliminar usuarios
+    Eliminar libros
+
+6.- Restriccion: Solo pueden tener max 3 libros por usuario.

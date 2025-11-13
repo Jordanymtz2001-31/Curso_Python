@@ -1,0 +1,34 @@
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>REGISTRO DE PERFILES </h2>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label for="usuario"> USUARIO </label>
+                    <input type="text" class="form-control" name="usuario" [(ngModel)]="perfil.usuario">
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre"> NOMBRE </label>
+                    <input type="text" class="form-control" name="nombre" [(ngModel)]="perfil.nombre">
+                </div>
+
+                <div class="form-group">
+                    <label for="edad"> EDAD </label>
+                    <input type="number" class="form-control" name="edad" [(ngModel)]="perfil.edad">
+                </div>
+
+                <div class="form-group">
+                    <label for="nivel"> NIVEL </label>
+                    <input type="text" class="form-control" name="nivel" [(ngModel)]="perfil.nivel">
+                </div>
+                <br>
+                <button class="btn btn-success" (click)="guardar()"> GUARDAR </button>
+                <button class="btn btn-secondary mx-2" (click)="cancelar()"> CANCELAR </button>
+            </form>
+        </div>
+    </div>
+</div>
