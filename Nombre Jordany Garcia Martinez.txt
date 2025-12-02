@@ -1,0 +1,40 @@
+Nombre: Jordany Garcia Martinez
+Semana: 2
+Instructor: ING. Miranda Hernandez
+Responde las siguientes preguntas con tus propias palabras.
+1.- ¿Qué es una BD? Un BD significa base de datos, en donde consiste en una colección de información guardada en la nube, un servido, o de forma local.
+2.- ¿Qué es un Gestor de Bases de Datos? Un gestor de BD es una herramienta o programa la cual ayuda a la gestión de información (Hacer manipulación de esta para fines propios), existen diversos gestores como, MySQL, Oracle, SQLite, entre otros, cada uno tiene el mismo fin solo que cada uno tiene su adaptabilidad dependiendo el uso que se requiere. 
+3.- ¿Qué es una Entidad en base de datos? Una entidad se conoce como un objeto o tabla en base de datos, donde esta tabla tiene sus propios atributos podría decirse, done estos atributos almacenan información.
+4.- ¿Qué es un campo y cuál es su objetivo? El cambo en base de datos, es el atributo de una entidad(objeto/tabla), el campo o los campos su principal función es dividir la información para que esté ordenada.
+5.- ¿Qué es la Cardinalidad? La cardinalidad es como se relaciona una entidad con otra entidad, de forma que tengan sentido, es una forma de leerlas, tanto de un lado a otro como el contrario, existen diferentes cardinalidades, esto difiere de las tablas o entidades.
+6.- ¿Qué es un Constraint?  También conocido como restricción o regla, donde cierta regla se debe de cumplir algo en especifivo.
+7.- ¿Qué es una vista? Una vista es el reflejo de la información que se consulto, en donde se pueden crear vistas y esta vista almacena información para posteriormente mandarla a traer por el nombre de vista, esta no guarda los datos, solo los ordena de diferente manera una o mas de una tabla al mismo tiempo temporalmente.
+8.- Menciona algunas funciones de agregación.
+Count()
+Sum()
+Max()
+Min()
+9.- ¿Cuál es su función de una Sentencia CASE? 
+10.- ¿Cuántos tipos de JOIN existen? Descríbelos.
+INNER JOIN: Regresa información que consultamos de dos tablas pero solo la información que tiene relación de ambas.
+LEFT JOIN: Regresa información que consultamos de dos tablas pero solo la información que tiene relación de ambas y del lado izquierdo.
+RIGHT JOIN: Regresa información que consultamos de dos tablas pero solo la información que tiene relación de ambas y del lado derecho.
+FULL JOIN: Este es como si fueran las dos anteriores, donde me regresa de ambos lados que hay conincidencia.
+
+11.- ¿Qué es un Trigger? Un trigger es un disparador, este actúa antes o después de una acción que se aya echo, esto dependerá de como el programador lo estruccture
+12.- ¿Qué es una superclave y una clave candidata?  Una superclave es un conjunto de uno o mas atribustos que identifican a la entidad.
+La clave candidata es aquella que no tiene atributos adicionales.
+13.- ¿Qué es una clave primaria? La clave primaria es un identificador para cada objeto o entidad, en base de datos, cada tabla tiene una clave primaria para identificar a sus objetos.
+14.- ¿Qué es un DDL y DML? También menciona su diferencia.
+El DDL define y puede modificar la estructura de la base de datos.
+El DML manipula y gestiona la información dentro de las entidades.
+15.- Explica la diferencia entre una clave primaria y una clave foránea
+Una clave primaria es el identificador de una entidad pero esta dependerá de la relación con otra enditad, puede pasar a ser una clave foránea, es decir que habría relación y por ende compartiría su información de la tabla que su clave primaria paso a ser clave foránea.
+16.- ¿Cuál es la diferencia de :OLD y :NEW en un trigger? En un historial puede aver datos nuevos y datos viejos que fueron cambiados por nuevos, aquí es donde esta información pasa de viejo a OLD, y nuevos a NEW.
+17.- ¿Qué es normalización? La normalización, es decir exiten reglas o normas para estructurar bases de datos, esto se aplica cuando se crean las tablas y sus relaciones, es decir que tiene que tener un orden con el fin de que la base de datos tengas mas rendimiento, escalabilidad, datos asegurados.
+18.- ¿Explica las formas normales?
+1FN: Cada campo debe de tener valores indivisibles, no puede haber grupos repetitivos y debe tener su clave primaria para cada tabla.
+2FN: Deben de cumplir con la primera forma, todos los campos deben de depender de la clave primaria, evitar dependencias parciales.
+ 3FN: Deben de cumplir con las anteriores forma, no debe de haber dependencia transitivas, es decir que un campo que no sea clave primaria no puede depender de otro atributo no clave.
+19.- ¿Qué es un procedimiento almacenado? Es un conjunto de instrucciones que se guardan en la base de datos con un nombre en especial y puede hacer uso de este con su nombre.
+ 

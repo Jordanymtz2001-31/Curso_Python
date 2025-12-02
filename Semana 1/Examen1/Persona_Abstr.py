@@ -1,6 +1,7 @@
 from abc import ABS, abstractmethod
 
-
+#El se le coloca el ABS para indicar que es una clase abstracta
+# Esta clase no se puede instanciar directamente sino que debe ser heredada por otras clases
 class Persona(ABS):
 
     def __init__(self, matricula, nombre, edad):
@@ -13,8 +14,8 @@ class Persona(ABS):
     def mostrar_datos(self):
         pass
 
-    #Metodo estatico
-    @staticmethod
+    #Metodo estatico es decir que no necesita una instancia de la clase para ser utilizado
+    
     def validar_edad(edad):
         return isinstance(edad, int) and 0 < edad <= 25 #Isinstance verifica si es del tipo int
     

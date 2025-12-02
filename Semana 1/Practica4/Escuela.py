@@ -1,5 +1,6 @@
 class Escuela:
 
+    #Contructor para la clase escuela y inicializacion de atributos
     def __init__(self, nombre, nivel, estado, tipo):
         self.nombre = nombre
         self.nivel = nivel

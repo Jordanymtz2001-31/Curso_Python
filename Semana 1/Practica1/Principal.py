@@ -16,9 +16,9 @@ print("----------------------------------------")
 #Obtener informacion
 print("Marca del Auto1: \n" + auto1.get_marca()+
       "\nModelo del Auto1: \n" + auto1.get_modelo()+
-        "\nAño del Auto1: \n" + str(auto1.get_año())+
-            "\nColor del Auto1: \n" + auto1.get_color()+
-            "\n ---------------------------------------")
+      "\nAño del Auto1: \n" + str(auto1.get_año())+
+      "\nColor del Auto1: \n" + auto1.get_color()+
+      "\n ---------------------------------------")
 
 #Obtener informacion con f-string
 print(f"Marca del Auto1: \n{auto1.get_marca()}"

@@ -105,17 +105,17 @@ class Principal:
                 #Aqui el k es es el campo clave y lo que es (_ este se ignora, label es el valor de la lista)
                 print("\nElige exactamente Dos campos (Eliga los numero uno por uno")
                 for k, (_, label) in campos.items(): 
-                     print(f"{k}. {label}") 
+                    print(f"{k}. {label}") 
 
                 Seleccion1 = input("Primera Opcion: ").strip()
                 Seleccion2 = input("Segunda Opcion: ").strip()
 
                 if Seleccion1 == Seleccion2:
-                     print("Las dos opciones debeb de ser diferentes")
-                     continue
+                    print("Las dos opciones debeb de ser diferentes")
+                    continue
                 if Seleccion1 not in campos or Seleccion2 not in campos:
-                     print("Opcione Invalida. Debes de colocar opciones del 1-5")
-                     continue
+                    print("Opcione Invalida. Debes de colocar opciones del 1-5")
+                    continue
                 
                 elecciones = [campos[Seleccion1][0], campos[Seleccion2][0]] #Nombre de los atributos
 

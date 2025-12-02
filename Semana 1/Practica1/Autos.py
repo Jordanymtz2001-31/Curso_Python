@@ -18,7 +18,7 @@ class Autos:
         cls.cantidad_autos +=1
 
     @classmethod
-    def mostrar_cantidad(cls):
+    def mostrar_cantidad(cls): 
         return f"Cantidad de autos: {cls.cantidad_autos}"
     
     #Metodos de instancia, obtener y modificar los atributos del objeto
