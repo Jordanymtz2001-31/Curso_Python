@@ -77,8 +77,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'paises_db',
-        'USER': 'enucom',
-        'PASSWORD': '1234',
+        'USER': 'Dany',
+        'PASSWORD': '12345678j',
         'HOST': 'localhost',
         'PORT': '3306'
     }
