@@ -4,7 +4,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializer import RegistroSerializer
 
-# Create your views here.
+# Creamos metodos de acceso con los decoradores @api_view para API basicas, en este proyecto es mas sencillo para entender
+# Con @permission_classes igual es mas sencillo en este caso
 @api_view(['POST'])
 @permission_classes([AllowAny]) #Registro libre, cualquiera se puede registrar
 def registrar_usuario(request):
@@ -24,7 +25,7 @@ def bienvenida(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated]) #Acceso protegido, solo usuarios autenticados
 def informacion(request):
-    return Response({'info': 'Esta informacion esta protegida'})
+    return Response({'info': 'Podiste Entrar con Autenticacion basica'})
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])

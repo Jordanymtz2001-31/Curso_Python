@@ -43,12 +43,13 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication', #Autenticacion basica
+        'rest_framework.authentication.BasicAuthentication', #Indicamos que usaremos autenticacion basica
     ],
     'DEFAULT_PERMISSION_CLASSES':[
         'rest_framework.permissions.IsAuthenticated' #Permiso por autenticacion
     ],
-    'EXCEPTION_HANDLER': 'api.exceptions.custom_exception_handler', #Ruta de excepciones
+    # Aqui indicamos la ruta de nuestro manejador de excepciones personalizado de manera global
+    'EXCEPTION_HANDLER': 'api.exceptions.custom_exception_handler',
 }
 
 #Le indicamos a Django que este sera mi modelo de USER

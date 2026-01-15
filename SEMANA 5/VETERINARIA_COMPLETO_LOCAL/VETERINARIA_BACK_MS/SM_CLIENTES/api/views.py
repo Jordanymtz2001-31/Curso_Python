@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 import requests
 
-
+# ViewSet que nos genera los Endpoints basicos de CRUD
 class ClienteViewSet(viewsets.ModelViewSet):
     queryset = Clientes.objects.all()
     serializer_class = ClienteSerializer
@@ -26,6 +26,7 @@ class ClienteViewSet(viewsets.ModelViewSet):
             return Response({"error": "Falta el parametro id_veterinaria"}, status=400)
 
 # Vista Basada en clase con APIView, es decir no es un ViewSet
+# Usamos APIView para crear un endpoint personalizado que obtenga el detalle de un cliente junto con sus mascotas
 class DetalleClienteView(APIView):
     def get(self, request, id_cliente):
         try:

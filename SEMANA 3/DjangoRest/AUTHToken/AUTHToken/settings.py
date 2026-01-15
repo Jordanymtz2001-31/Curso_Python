@@ -38,11 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
-    'rest_framework',
-    'rest_framework_simplejwt'
+    'rest_framework', #Indicamos que usaremos rest_framework
+    'rest_framework_simplejwt' #Aqui estamos indicando que usaremos JWT
 ]
 
-from datetime import timedelta
+from datetime import timedelta # Importamos timedelta para definir el tiempo de expiracion
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5), #Caducidad del token

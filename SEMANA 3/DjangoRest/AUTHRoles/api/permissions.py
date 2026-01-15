@@ -1,5 +1,6 @@
 from rest_framework.permissions import BasePermission
 # BasePermission es una clase abstracta que sirve para crear permisos personalizados.
+# Este caso usa BasePermison para crear un permiso personalizado llamado IsAdmin algo mas basico
 
 class IsAdmin(BasePermission): #Define un permiso personalizado llamado isAdmin
     def has_permission(self, request, view): #Esta funcion decice si se permite el acceso a la vista protegida.

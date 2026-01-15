@@ -4,7 +4,7 @@ from .serializer import MascotasSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-
+# ViewSet que nos genera los Endpoints basicos de CRUD
 class MascotasViewSet(viewsets.ModelViewSet):
     queryset = Mascotas.objects.all()
     serializer_class = MascotasSerializer
