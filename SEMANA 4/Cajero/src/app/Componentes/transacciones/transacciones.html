@@ -1,0 +1,58 @@
+<div class="transacciones-container">
+  <div class="card retirar">
+    <h3>Retirar Dinero</h3>
+
+    <div class="form-row">
+      <input type="number" [(ngModel)]="retirarMonto" placeholder="Monto a retirar" />
+      <button class="btn primary" (click)="ejecutarRetiro()" [disabled]="loadingRetirar">Retirar</button>
+    </div>
+
+    <div *ngIf="loadingRetirar" class="info">Procesando retiro...</div>
+    <div *ngIf="retirarError" class="error">{{ retirarError }}</div>
+
+    <div *ngIf="retirarResultado" class="result">
+      <p><strong>Total entregado:</strong> {{ retirarResultado.total | number:'1.2-2' }}</p>
+      <div class="desglose">
+        <h4>Desglose</h4>
+        <ul>
+          <li *ngFor="let d of retirarResultado.desglose; trackBy: trackByIndex">
+            {{ d.tipo }} - {{ d.valor | number:'1.2-2' }} x {{ d.cantidad }} = {{ (d.valor * d.cantidad) | number:'1.2-2' }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card depositar">
+    <h3>Depositar Dinero</h3>
+
+    <div class="form-row">
+      <input type="number" [(ngModel)]="depositoValor" placeholder="Valor" />
+      <input type="number" [(ngModel)]="depositoCantidad" placeholder="Cantidad" />
+      <button class="btn" (click)="agregarRecarga()">Agregar</button>
+    </div>
+
+    <ul class="recargas-list">
+      <li *ngFor="let r of recargas; let i = index; trackBy: trackByIndex">
+        {{ r.valor }} x {{ r.cantidad }} <button class="small" (click)="quitarRecarga(i)">Quitar</button>
+      </li>
+    </ul>
+
+    <div class="actions">
+      <button class="btn primary" (click)="ejecutarDepositar()" [disabled]="loadingDepositar">Depositar</button>
+    </div>
+
+    <div *ngIf="loadingDepositar" class="info">Enviando depósito...</div>
+    <div *ngIf="depositError" class="error">{{ depositError }}</div>
+    <div *ngIf="depositMsg" class="success">{{ depositMsg }}</div>
+
+    <div *ngIf="denominacionesActualizadas.length" class="updated-denoms">
+      <h4>Denominaciones actualizadas</h4>
+      <ul>
+        <li *ngFor="let d of denominacionesActualizadas; trackBy: trackByIndex">
+          {{ d.tipo }} - {{ d.valor | number:'1.2-2' }} x {{ d.cantidad }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

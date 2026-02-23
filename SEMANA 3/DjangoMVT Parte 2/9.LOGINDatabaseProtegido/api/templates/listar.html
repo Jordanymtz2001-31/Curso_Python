@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Listar Productos{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Lista de Productos</h2>
+    <a href="{% url 'guardar' %}" class="btn btn-primary">+ Nuevo Producto</a>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <td><strong>{{ producto.nombre }}</strong></td>
+                <td><span class="badge bg-success fs-6">${{ producto.precio }}</span></td>
+                <td>{{ producto.stock }} unidades</td>
+                <td>
+                    <span class="badge {% if producto.stock == 0 %}bg-danger{% else %}bg-success{% endif %}">
+                        {{ producto.disponibilidad }}
+                    </span>
+                </td>
+                <td>
+                    <a href="{% url 'editar' producto.id %}" class="btn btn-sm btn-outline-primary me-1">Editar</a>
+                    <a href="{% url 'eliminar' producto.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Eliminar {{ producto.nombre }}?')">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center py-4 text-muted">No hay productos registrados</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

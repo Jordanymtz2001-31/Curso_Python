@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas</title>
+</head>
+<body>
+    <h1>Lista de mascotas</h1>
+    <a href= {% url 'buscar_mascota_url' %}> 
+        <button>Buscar Mascotas</button>
+    </a>    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>  
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Peso</th>
+                <th>Especie</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mascota in mascotas %} 
+            <tr>
+                <td>{{mascota.id}}</td>
+                <td>{{mascota.nombre}}</td>
+                <td>{{mascota.edad}}</td>
+                <td>{{mascota.peso}}</td>
+                <td>{{mascota.especie}}</td>
+                <td>
+                    <a href="{% url 'editar_mascota_url' mascota.id %}">
+                        <button> Editar </button>
+                    </a>
+
+                    <a href="{%url 'eliminar_mascota_url' mascota.id %}">
+                        <button> Eliminar </button>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No hay instructores registrados</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

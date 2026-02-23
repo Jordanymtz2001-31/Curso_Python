@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<body class="bg-light">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%;">
+            <h3 class="text-center mb-4">Registrarse</h3>
+            {% if messages %} <!-- Si hay mensajes -->
+            {% for message in messages %} <!-- Recorremos los mensajes qe hayan %} -->
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert"> <!-- message.tags es el tipo de alerta que definimos en views y en settings -->
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <form method="POST" novalidate> <!-- novalidate es para que no se validen los datos del formulario -->
+                {% csrf_token %}
+                {{ formulario.non_field_errors }} <!-- Mostramos los errores generales en el formulario(datos invalidos, etc) -->
+                {% for field in formulario %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %} <!-- Si el campo tiene ayuda -->
+                    <div class="form-text">{{ field.help_text }}</div> <!-- Mostramos la ayuda -->
+                    {% endif %}
+                    {% for error in field.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success w-100">Registrarse</button>
+                </div>
+                <div class="text-center mt-3">
+                    <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar Sesion</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+                

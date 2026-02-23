@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Nuevo Producto{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header">
+                <h3 class="mb-0">Nuevo Producto</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST" novalidate>
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        {{ formulario.nombre.label_tag }} <!-- Mostramos el label del campo -->
+                        {{ formulario.nombre }} <!-- Mostramos el campo -->
+                        {% if formulario.nombre.errors %} <!-- Si el campo tiene errores -->
+                            <div class="text-danger">{{ formulario.nombre.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ formulario.precio.label_tag }}
+                        {{ formulario.precio }}
+                        {% if formulario.precio.errors %}
+                            <div class="text-danger">{{ formulario.precio.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ formulario.stock.label_tag }}
+                        {{ formulario.stock }}
+                        {% if formulario.stock.errors %}
+                            <div class="text-danger">{{ formulario.stock.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{% url 'listar' %}" class="btn btn-secondary me-md-2">Cancelar</a>
+                        <button type="submit" class="btn btn-success">Guardar Producto</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

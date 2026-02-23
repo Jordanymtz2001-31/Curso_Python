@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas</title>
+</head>
+<body>
+    <h1>Buscar mascotas por Nombre</h1>
+
+    <form method="get" >
+        {% csrf_token %}
+        <label for="nombre">Curso:</label>
+        <input type="text" name="nombre" value="{{nombre}}" placeholder="Ingrese el Nombre" required>
+        <br>
+        <button type="submit">Buscar</button>
+    </form>
+    <br>
+    <h2>Lista de mascotas:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Mascotas</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if mascotas %} # Si la lista de instructores no esta vacia
+            {% for mascota in mascotas %}
+                <tr>
+                    <td>{{mascota.nombre}}</td>
+                    <td>{{mascota.edad}}</td>
+                </tr>
+            {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="2">No se encontraron Mascotas</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'listar_mascotas_url' %}">Listar mascotas</a>
+</body>
+</html>

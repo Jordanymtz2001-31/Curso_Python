@@ -1,0 +1,34 @@
+<div class="container py-5">
+    <div class="card-shadow-lg boder-0 rounded-3">
+        <div class="card-header text-center bg-light py-4">
+            <h2 class="fw-bold text-uppercase m-0">GUARDAR MASCOTAS</h2>
+        </div>
+        <div class="card-body py-4">
+            <form>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label fw-semibold">NOMBRE</label>
+                    <input type="text" class="form-control from-control-lg shadow-sm" name="nombre" [(ngModel)]="mascota.nombre" placeholder="Ingrese el Nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="especie" class="form-label fw-semibold">ESPECIE</label>
+                    <input type="text" class="form-control from-control-lg shadow-sm" name="especie" [(ngModel)]="mascota.especie" placeholder="Ingrese el Tipo">
+                </div>
+                <div class="mb-3">
+                    <label for="edad" class="form-label fw-semibold">EDAD</label>
+                    <input type="number" class="form-control from-control-lg shadow-sm" name="edad" [(ngModel)]="mascota.edad" placeholder="Ingrese la Edad">
+                </div>
+                <div class="mb-3">
+                    <label for="tamanio" class="form-label fw-semibold">TAMAÑO</label>
+                    <input type="text" class="form-control from-control-lg shadow-sm" name="tamanio" [(ngModel)]="mascota.tamanio" placeholder="Ingrese el Tamaño">
+                </div>
+                <div class="d-flex justify-content-center gap-3 ">
+                    <button class="btn btn-lg btn-outline-success shadow-sm px-4" (click)="guardar()">
+                        <i class="bi bi-check-circle me-2"></i> GUARDAR
+                    </button>
+                    <button class="btn btn-lg btn-outline-danger shadow-sm px-4" (click)="cancelar()">
+                        <i class="bi bi-x-circle me-2"></i> CANCELAR
+                    </button>
+                </div>
+            </form>
+    </div>
+</div>

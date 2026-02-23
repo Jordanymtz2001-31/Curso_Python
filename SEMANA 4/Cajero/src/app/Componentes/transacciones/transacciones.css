@@ -1,0 +1,123 @@
+/* Transacciones styles - paleta: azul, blanco y negro */
+.transacciones-container {
+    max-width: 980px;
+    margin: 18px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 12px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    color: #000;
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    color: #0b2545;
+}
+
+.form-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-row input {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #e6eefb;
+    width: 100%;
+}
+
+.btn {
+    background: #eef6ff;
+    color: #0b2545;
+    border: 1px solid #cfe4ff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, #2b6ef6, #1e40af);
+    color: #fff;
+    border: none;
+    box-shadow: 0 8px 20px rgba(30, 64, 175, 0.12);
+}
+
+.btn.small,
+.small {
+    background: transparent;
+    border: none;
+    color: #0b2545;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.info {
+    background: #f0f7ff;
+    padding: 8px;
+    border-radius: 6px;
+    color: #0b2545;
+    margin-top: 8px;
+}
+
+.error {
+    background: #fff4f4;
+    padding: 8px;
+    border-radius: 6px;
+    color: #8b0000;
+    margin-top: 8px;
+}
+
+.success {
+    background: #effaf2;
+    padding: 8px;
+    border-radius: 6px;
+    color: #065f46;
+    margin-top: 8px;
+}
+
+.recargas-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+}
+
+.recargas-list li {
+    padding: 8px 10px;
+    border-bottom: 1px solid #f2f7ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.result {
+    margin-top: 10px;
+}
+
+.desglose ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.updated-denoms {
+    margin-top: 12px;
+}
+
+@media (max-width: 800px) {
+    .transacciones-container {
+        grid-template-columns: 1fr;
+        padding: 0 8px;
+    }
+}

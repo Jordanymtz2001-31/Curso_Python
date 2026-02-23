@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Mi Sitio Web{% endblock %}
+
+{% block content %} <!-- Aqui empieza el contenido -->
+<section class="py-5">
+    <div class="d-flex justify-content-center align-items-center flex-grow-1">
+        <div class="card-shadow-sm p-4 text-center" style="max-width: 400px; width: 100%;">
+            <h2 class="mb-4 d-inline-block me-3 mb-0 text-success fw-bold">Bienvenido {{ user.username }} a Mi Sitio Web</h2>
+            <p class="lead">Esta es la pagina de inicio de Mi Sitio Web.</p>
+            <form action="{% url 'logout' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger">Cerrar Sesion</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %} <!-- Aqui termina el contenido -->

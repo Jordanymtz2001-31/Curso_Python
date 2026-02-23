@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrudInstructores</title>
+</head>
+<body>
+    <h1>Buscar instructores por curso</h1>
+
+    <form method="get" >
+        {% csrf_token %} #Le pasamos el token de seguridad
+        <label for="curso_busqueda">Curso:</label>
+        <input type="text" name="curso_busqueda" value="{{curso_buscado}}" placeholder="Curso a buscar" required>
+        <br>
+        <button type="submit">Buscar</button>
+    </form>
+    <br>
+    <h2>Lista de instructores:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Instructor</th>
+                <th>Curso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if instructores %} # Si la lista de instructores no esta vacia
+            {% for instructor in instructores %}
+                <tr>
+                    <td>{{instructor.name}}</td>
+                    <td>{{instructor.curso}}</td>
+                </tr>
+            {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="2">No se encontraron instructores</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'listar_instructores_url' %}">Listar instructores</a>
+</body>
+</html>

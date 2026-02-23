@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrudInstructores</title>
+</head>
+<body>
+    <h1>Lista de instructores</h1>
+    <a href= {% url 'buscar_instructor_url' %}> 
+        <button>Buscar instructores</button>
+    </a>    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>  
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Curso</th>
+                <th>Experiencia</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for instructor in instructores %} #Recorremos la lista de instructores
+            <tr>
+                <td>{{instructor.id}}</td>
+                <td>{{instructor.name}}</td>
+                <td>{{instructor.age}}</td>
+                <td>{{instructor.curso}}</td>
+                <td>{{instructor.experiens}}</td>
+                <td>
+                    <a href="{% url 'editar_instructor_url' instructor.id %}">
+                        <button> Editar </button>
+                    </a>
+
+                    <a href="{%url 'eliminar_instructor_url' instructor.id %}">
+                        <button> Eliminar </button>
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No hay instructores registrados</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

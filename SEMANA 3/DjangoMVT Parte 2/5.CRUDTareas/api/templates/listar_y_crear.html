@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row">
+            <h1 class="text-center">Tareas</h1>  
+
+            <!-- Formulario para crear una nueva tarea -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Crear Tarea</h4>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <!-- Iteramos sobre los campos del formulario y los mostramos en la plantilla -->
+                        {% for campo in formulario %}
+                        <div class="mb-3">
+                            <label class="form-label">{{ campo.label }} : {{ campo }}</label>
+                        </div>
+                        {% endfor %}     
+                        <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Lista de tareas Incompletadas -->
+            <div class="row mt-5">
+                <div class="col md-6">
+                    <div class="card border-0 shadow-sm rounded-3">
+                        <div class="card-header bg-secundary text-white rounded-top">
+                            <h3 class="mb-0">
+                                <i class="bi bi-hourglass-split me-2"></i>
+                                Tareas Pendientes
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                {% for tarea in incompletadas %}
+                                <li class="list-group-item d-flex align-items-center">
+                                    <!--CHEKBOX-->
+                                    <form action="{% url 'editar_tarea_url' tarea.id %}" method="POST" class="d-flex align-items-center">
+                                        {% csrf_token %}
+                                        <input type="checkbox" name="completed" class="form-check-input me-2" onchange="this.form.submit()" 
+                                        {% if tarea.completed %} checked {% endif %}>
+                                    </form>
+                                    <!-- INFO DE LA TAREA-->
+                                    <div>
+                                        <strong class="text-dark"> {{ tarea.title }} </strong>
+                                        <p class="text-muted mb-0"> {{ tarea.description }} </p>
+                                        <small class="text-muted"> {{ tarea.created_at }} </small>
+                                    </div>
+                                </li>
+                                <hr>
+                                {% empty %}
+                                <p class="text-muted text-center">No hay tareas pendientes</p>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de tareas completadas -->
+                <div class="col md-6">
+                    <div class="card border-0 shadow-sm rounded-3">
+                        <div class="card-header bg-secundary text-white rounded-top">
+                            <h3 class="mb-0">
+                                <i class="bi bi-check-circle me-2"></i>
+                                Tareas Completadas
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                {% for tarea in completadas %}
+                                <li class="list-group-item d-flex align-items-center">
+                                    <!--CHEKBOX-->
+                                    <form action="{% url 'editar_tarea_url' tarea.id %}" method="POST" class="d-flex align-items-center">
+                                        {% csrf_token %}
+                                        <input type="checkbox" name="completed" class="form-check-input me-2" onchange="this.form.submit()" 
+                                        {% if tarea.completed %} checked {% endif %}>
+                                    </form>
+                                    <!-- INFO DE LA TAREA-->
+                                    <div>
+                                        <strong class="text-dark"> {{ tarea.title }} </strong>
+                                        <p class="text-muted mb-0"> {{ tarea.description }} </p>
+                                        <small class="text-muted"> {{ tarea.updated_at }} </small>
+                                    </div>
+                                </li>
+                                <hr>
+                                {% empty %}
+                                <p class="text-muted text-center">No hay tareas completadas</p>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>

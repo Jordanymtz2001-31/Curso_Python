@@ -5,6 +5,7 @@ from .models import Departamento, Empleado
 from .serializer import DepartamentoSerializer, EmpleadoSerializer
 from rest_framework.permissions import IsAuthenticated
 from .permissions import IsAdmin
+from rest_framework.response import Response
 
 class DepartamentoViewSets(viewsets.ModelViewSet):
     queryset = Departamento.objects.all()

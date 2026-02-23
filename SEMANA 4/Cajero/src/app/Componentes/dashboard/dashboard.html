@@ -1,0 +1,39 @@
+<div class="dashboard">
+	<div class="dashboard-header">
+		<h2>Denominaciones del Cajero</h2>
+		<div class="actions">
+			<button class="btn-refresh mx-2" (click)="cargarDenominaciones()">Refrescar</button>
+            <button class="btn-inicializar" (click)="inicializarCajero()" [disabled]="loading">Inicializar Cajero</button>
+		</div>
+	</div>
+
+	<div *ngIf="loading" class="loading">Cargando denominaciones...</div>
+	<div *ngIf="error" class="error">{{ error }}</div>
+
+	<table *ngIf="!loading && denominaciones.length" class="denom-table">
+		<thead>
+			<tr>
+				<th>Tipo</th>
+				<th>Valor</th>
+				<th>Cantidad</th>
+				<th>Sub-Total</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let d of denominaciones">
+				<td>{{ d.tipo }}</td>
+				<td>{{ d.valor | number:'1.2-2' }}</td>
+				<td>{{ d.cantidad }}</td>
+				<td>{{ (d.valor * d.cantidad) | number:'1.2-2' }}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3" class="total-label">Total en caja</td>
+				<td class="total-value">${{ getTotalCaja() | number:'1.2-2' }}</td>
+			</tr>
+		</tfoot>
+	</table>
+
+	<div *ngIf="!loading && !denominaciones.length" class="empty">No hay denominaciones disponibles.</div>
+</div>

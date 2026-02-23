@@ -1,0 +1,22 @@
+<nav class="navbar">
+  <div class="navber-container">
+    <div class="navbar-brand">
+      <h1>Cajero</h1>
+    </div>
+
+    <!-- Menu Principal-->
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <button class="nav-link" (click)="transacciones()">Transacciones</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" (click)="dashboard()">Dashboard</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Contenedor principal -->
+<div class="main-content">
+  <router-outlet />
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrudInstructores</title>
+</head>
+<body>
+    <h1>Editar instructores</h1>
+    <form method="post" >
+        {% csrf_token %} #Le pasamos el token de seguridad
+        <label for="name">Instructor:</label>
+        <input type="text" name="name" value="{{instructor.name}}" required>
+        <br>
+        <label for="age">Edad:</label>
+        <input type="number" name="age" value="{{instructor.age}}" required>
+        <br>
+        <label for="curso">Curso:</label>
+        <input type="text" name="curso" value="{{instructor.curso}}" required>
+        <br>
+        <label for="experiencia">Experiencia:</label>
+        <input type="number" name="experiencia" value="{{instructor.experiens}}" required>
+        <br>
+        <button type="submit">Aceptar</button>
+    </form>
+    <br>
+    <a href="{% url 'listar_instructores_url' %}">Listar instructores</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            <h2>LISTAR COMPUTADORAS</h2>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="table-dark text-center">
+                        <th scope="col">ID</th>
+                        <th scope="col">MARCA</th>
+                        <th scope="col">MODELO</th>
+                        <th scope="col">RAM</th>
+                        <th scope="col">PRECIO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (compu of computadoras; track compu.id){
+                    <tr class="table-light text-center">
+                        <td>{{compu.id}}</td>
+                        <td>{{compu.marca}}</td>
+                        <td>{{compu.modelo}}</td>
+                        <td>{{compu.ram}}</td>
+                        <td>{{compu.precio}}</td>
+                    </tr>
+                    }@empty{
+                    <tr class="table-light text-center">
+                        <td colspan="5">NO HAY COMPUTADORAS</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
