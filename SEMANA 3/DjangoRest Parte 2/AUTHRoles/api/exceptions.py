@@ -4,13 +4,11 @@ from rest_framework import status
 
 #Metodo personalizado para manejar excepciones globales
 def custom_exception_handler(exc, context):
-    print(f"EXCEPCIÓN: {type(exc).__name__}")  # Ver qué llega
     #Llamamos al handler original
     response = exception_handler(exc, context)
     # exc: es el tipo de excepcion que se lanza
     # context: Informacion adicional de la excepcion.
 
-    print(f"RESPONSE: {response}")  # Ver si DRF la procesa
     
     # Si la respuesta no es None, significa que DRF pudo manejar la excepcion
     if response is not None:

@@ -32,11 +32,11 @@ class ReservaSerializer(serializers.ModelSerializer):
         if data['fecha_salida'] <= data['fecha_entrada']:
             raise serializers.ValidationError('La fecha de salida debe ser posterior a la fecha de entrada.')
         
-        # Construyes la reserva con los datos combinados
-        reserva = Reserva(**data, huesped=huesped)
-        try:
-            reserva.full_clean()  # Llama tu método clean() del modelo
-        except ValidationError as e:
-            raise serializers.ValidationError(str(e))
-
-        return data  
+        # QUITA huesped del data para evitar duplicado
+        data_sin_huesped = data.copy()
+        data_sin_huesped.pop('huesped', None)
+        
+        reserva = Reserva(**data_sin_huesped, huesped=huesped)
+        reserva.full_clean()
+        
+        return data
